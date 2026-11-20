@@ -1,0 +1,1 @@
+{"recipes":[{"event_id":"recipe-1","garment_id":"coat-1","version":1,"process":"dry","max_temp":40,"banned_chemicals":["bleach"],"approved_by":"owner-1"}],"operations":[{"event_id":"op-1","garment_id":"coat-1","recipe_id":"recipe-1","kind":"clean","at":"2026-11-02","temp":30,"chemical":"mild","from_shop":"shop-a","to_shop":"shop-a","sender":"worker-a","receiver":"worker-a"}]}

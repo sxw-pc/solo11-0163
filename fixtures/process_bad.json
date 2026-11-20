@@ -1,0 +1,1 @@
+{"operations":[{"event_id":"op-2","garment_id":"coat-1","recipe_id":"recipe-1","kind":"clean","at":"2026-11-03","temp":70,"chemical":"bleach","from_shop":"shop-a","to_shop":"shop-b","sender":"worker-a"}]}
