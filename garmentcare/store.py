@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS return_receipt(event_id TEXT PRIMARY KEY,garment_id T
 CREATE TABLE IF NOT EXISTS claim(event_id TEXT PRIMARY KEY,garment_id TEXT NOT NULL,receipt_id TEXT NOT NULL,at TEXT NOT NULL,photo_sha TEXT NOT NULL,damage TEXT NOT NULL,requested_amount INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS compensation_decision(garment_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,payable INTEGER NOT NULL,frozen INTEGER NOT NULL,version INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS decision_history(id INTEGER PRIMARY KEY,subsystem TEXT NOT NULL,garment_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS campaign_touch(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,campaign TEXT NOT NULL,channel TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS service_booking(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,garment_id TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS acquisition_decision(booking_id TEXT PRIMARY KEY,state TEXT NOT NULL,campaign TEXT,source_event TEXT);
 """
 
 
