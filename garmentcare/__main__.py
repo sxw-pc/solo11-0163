@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from . import intake,process,returns
+from . import intake,process,returns,utility
 from .report import report,dumps
 from .source import file_record
 from .store import connect
@@ -10,7 +10,7 @@ from .store import connect
 def run_import(db,command,raw):
     data=json.loads(raw)
     file_record(db,command,raw)
-    return {'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data}[command](db,data)
+    return {'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data,'meter-import':utility.import_data}[command](db,data)
 
 
 def audit(db):
@@ -25,7 +25,7 @@ def audit(db):
 
 def main(argv=None):
     p=argparse.ArgumentParser(prog='garmentcare')
-    p.add_argument('command',choices=['garment-import','process-import','return-import','report','audit','demo'])
+    p.add_argument('command',choices=['garment-import','process-import','return-import','meter-import','report','audit','demo'])
     p.add_argument('--db',required=True)
     p.add_argument('--file')
     a=p.parse_args(argv)
