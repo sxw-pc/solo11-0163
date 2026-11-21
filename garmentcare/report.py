@@ -10,7 +10,8 @@ def report(db):
             item[key]=dict(row) if row else None
         item['history']=[dict(row) for row in db.execute('SELECT subsystem,version,state,reason FROM decision_history WHERE garment_id=? ORDER BY id',(g['id'],))]
         garments.append(item)
-    return {'garments':garments,'source_files':[dict(row) for row in db.execute('SELECT kind,sha FROM file_journal ORDER BY id')],
+    return {'garments':garments,'alterations':[dict(row) for row in db.execute('SELECT * FROM alteration_decision ORDER BY garment_id')],
+            'source_files':[dict(row) for row in db.execute('SELECT kind,sha FROM file_journal ORDER BY id')],
             'evidence_count':db.execute('SELECT COUNT(*) FROM evidence').fetchone()[0]}
 
 
