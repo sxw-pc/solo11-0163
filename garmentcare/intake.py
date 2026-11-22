@@ -41,4 +41,8 @@ def import_data(db,data):
                 db.execute('INSERT INTO intake_photo VALUES(?,?,?,?,?,?,?,?)',
                            (row['event_id'],row['garment_id'],row['version'],row['photo_sha'],json.dumps(row['damage'],sort_keys=True),row['owner_signer'],row['clerk_signer'],row['material']))
             touched.add(row['garment_id'])
-        return [decide(db,g) for g in sorted(touched)]
+    with db:
+        results=[decide(db,g) for g in sorted(touched)]
+        from .delivery import refresh
+        refresh(db,touched)
+    return results

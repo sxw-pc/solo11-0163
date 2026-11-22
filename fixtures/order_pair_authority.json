@@ -1,0 +1,6 @@
+{
+  "authorities": [
+    {"event_id": "auth-jacket-picker", "garment_id": "jacket-1", "person": "picker-1", "owner_signer": "owner-1", "valid_to": "2026-11-30"},
+    {"event_id": "auth-scarf-picker", "garment_id": "scarf-1", "person": "picker-1", "owner_signer": "owner-1", "valid_to": "2026-11-30"}
+  ]
+}

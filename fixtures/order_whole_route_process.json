@@ -1,0 +1,65 @@
+{
+  "recipes": [
+    {
+      "event_id": "recipe-jacket",
+      "garment_id": "jacket-1",
+      "version": 1,
+      "process": "dry",
+      "max_temp": 40,
+      "banned_chemicals": [
+        "bleach"
+      ],
+      "approved_by": "owner-1"
+    },
+    {
+      "event_id": "recipe-scarf",
+      "garment_id": "scarf-1",
+      "version": 1,
+      "process": "dry",
+      "max_temp": 40,
+      "banned_chemicals": [
+        "bleach"
+      ],
+      "approved_by": "owner-1"
+    },
+    {
+      "event_id": "recipe-scarf-v2",
+      "garment_id": "scarf-1",
+      "version": 2,
+      "process": "dry",
+      "max_temp": 40,
+      "banned_chemicals": [
+        "bleach"
+      ],
+      "approved_by": "owner-1"
+    }
+  ],
+  "operations": [
+    {
+      "event_id": "op-jacket",
+      "garment_id": "jacket-1",
+      "recipe_id": "recipe-jacket",
+      "kind": "clean",
+      "at": "2026-11-02",
+      "temp": 30,
+      "chemical": "mild",
+      "from_shop": "shop-a",
+      "to_shop": "shop-a",
+      "sender": "worker-a",
+      "receiver": "worker-a"
+    },
+    {
+      "event_id": "op-scarf-v2",
+      "garment_id": "scarf-1",
+      "recipe_id": "recipe-scarf-v2",
+      "kind": "clean",
+      "at": "2026-11-03",
+      "temp": 30,
+      "chemical": "mild",
+      "from_shop": "shop-a",
+      "to_shop": "shop-b",
+      "sender": "worker-a",
+      "receiver": "worker-b"
+    }
+  ]
+}

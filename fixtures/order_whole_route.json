@@ -1,0 +1,37 @@
+{
+  "orders": [
+    {
+      "event_id": "order-pair-1",
+      "order_id": "order-pair-1",
+      "owner": "owner-1",
+      "allow_split": true,
+      "original_bag": "bag-pair-1",
+      "original_seal": "seal-pair-1",
+      "created_at": "2026-11-01"
+    }
+  ],
+  "members": [
+    {
+      "event_id": "member-jacket",
+      "order_id": "order-pair-1",
+      "garment_id": "jacket-1"
+    },
+    {
+      "event_id": "member-scarf",
+      "order_id": "order-pair-1",
+      "garment_id": "scarf-1"
+    }
+  ],
+  "handoffs": [
+    {
+      "event_id": "handoff-pair-whole",
+      "order_id": "order-pair-1",
+      "bag": "bag-pair-1",
+      "seal": "seal-pair-1",
+      "person": "picker-1",
+      "at": "2026-11-05",
+      "condition": "clean",
+      "owner_signer": "picker-1"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "garments": [
+    {"event_id": "garment-jacket", "id": "jacket-1", "owner": "owner-1", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 10000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-1", "claim_until": "2026-11-30", "expected_bag": "bag-pair-1"},
+    {"event_id": "garment-scarf", "id": "scarf-1", "owner": "owner-1", "material": "silk", "accepted_at": "2026-11-01", "declared_value": 6000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-1", "claim_until": "2026-11-30", "expected_bag": "bag-pair-1"}
+  ],
+  "photos": [
+    {"event_id": "photo-jacket-1", "garment_id": "jacket-1", "version": 1, "photo_sha": "intake-jacket", "damage": ["old-scuff"], "owner_signer": "owner-1", "clerk_signer": "clerk-1", "material": "wool"},
+    {"event_id": "photo-scarf-1", "garment_id": "scarf-1", "version": 1, "photo_sha": "intake-scarf", "damage": [], "owner_signer": "owner-1", "clerk_signer": "clerk-1", "material": "silk"}
+  ]
+}
