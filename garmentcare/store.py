@@ -16,15 +16,45 @@ CREATE TABLE IF NOT EXISTS claim(event_id TEXT PRIMARY KEY,garment_id TEXT NOT N
 CREATE TABLE IF NOT EXISTS compensation_decision(garment_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,payable INTEGER NOT NULL,frozen INTEGER NOT NULL,version INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS decision_history(id INTEGER PRIMARY KEY,subsystem TEXT NOT NULL,garment_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS meter_page(event_id TEXT PRIMARY KEY,supplier TEXT NOT NULL,site TEXT NOT NULL,fetched_at TEXT NOT NULL,html TEXT NOT NULL);
-CREATE TABLE IF NOT EXISTS meter_reading(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,period TEXT NOT NULL,reading INTEGER NOT NULL,supplier TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS meter(meter_id TEXT PRIMARY KEY,site TEXT NOT NULL,role TEXT NOT NULL,parent_meter TEXT,branch_id TEXT,supplier TEXT,reversed INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE IF NOT EXISTS meter_topology(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,meter_id TEXT NOT NULL,branch_id TEXT NOT NULL,parent_meter TEXT,action TEXT NOT NULL,effective_at TEXT NOT NULL,from_branch TEXT,segment TEXT,document_id TEXT,signer_a TEXT,signer_b TEXT,reversed INTEGER NOT NULL DEFAULT 0,filed_at TEXT);
+CREATE TABLE IF NOT EXISTS clock_check(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,meter_id TEXT NOT NULL,period TEXT NOT NULL,checked_at TEXT NOT NULL,offset_seconds INTEGER NOT NULL,certificate_id TEXT,signer TEXT);
+CREATE TABLE IF NOT EXISTS meter_reading(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,period TEXT NOT NULL,reading INTEGER NOT NULL,supplier TEXT NOT NULL,meter_id TEXT NOT NULL DEFAULT '',read_at TEXT,clock_offset_seconds INTEGER NOT NULL DEFAULT 0,corrected_at TEXT,clock_verified INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE IF NOT EXISTS common_load(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,load_id TEXT NOT NULL,description TEXT NOT NULL,period TEXT NOT NULL,units INTEGER NOT NULL,branch_metered_units INTEGER NOT NULL DEFAULT 0,connected_meter TEXT,metered_by TEXT,source TEXT NOT NULL,evidence_id TEXT,signer_a TEXT,signer_b TEXT,valid INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS clamp_test(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,load_id TEXT NOT NULL,description TEXT NOT NULL,period TEXT NOT NULL,units INTEGER NOT NULL,segment TEXT,bypassed_meter TEXT,wiring_diagram_id TEXT,signer_a TEXT,signer_b TEXT,tested_at TEXT,valid INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS calibration_cert(event_id TEXT PRIMARY KEY,site TEXT NOT NULL,meter_id TEXT NOT NULL,issued_by TEXT NOT NULL,issuer_role TEXT NOT NULL,period TEXT NOT NULL,valid_from TEXT NOT NULL,valid_to TEXT NOT NULL,correction_units INTEGER NOT NULL,uncertainty_units INTEGER NOT NULL DEFAULT 0,certificate_id TEXT,signer TEXT);
+CREATE TABLE IF NOT EXISTS energy_investigation(site TEXT NOT NULL,period TEXT NOT NULL,main_meter TEXT NOT NULL,main_units INTEGER NOT NULL,branch_units INTEGER NOT NULL,adjusted_branch_units INTEGER NOT NULL,common_units INTEGER NOT NULL,explained_units INTEGER NOT NULL,unexplained_units INTEGER NOT NULL,trust_low INTEGER NOT NULL,trust_high INTEGER NOT NULL,state TEXT NOT NULL,responsibility TEXT NOT NULL,reason TEXT NOT NULL,evidence TEXT NOT NULL,affected TEXT NOT NULL,work_orders TEXT NOT NULL,next_period TEXT NOT NULL,PRIMARY KEY(site,period));
+CREATE TABLE IF NOT EXISTS work_order(order_id TEXT PRIMARY KEY,site TEXT NOT NULL,period TEXT NOT NULL,kind TEXT NOT NULL,target TEXT NOT NULL,detail TEXT NOT NULL,priority TEXT NOT NULL,source_event TEXT);
 CREATE TABLE IF NOT EXISTS energy_usage(site TEXT PRIMARY KEY,state TEXT NOT NULL,latest_period TEXT NOT NULL,units INTEGER NOT NULL);
 """
+
+READING_COLUMNS = {
+    'meter_id': "TEXT NOT NULL DEFAULT ''",
+    'read_at': 'TEXT',
+    'clock_offset_seconds': 'INTEGER NOT NULL DEFAULT 0',
+    'corrected_at': 'TEXT',
+    'clock_verified': 'INTEGER NOT NULL DEFAULT 0',
+}
+
+
+def _migrate(db):
+    """Keep pre-topology databases readable; raw numbers are never rewritten."""
+    existing = {row['name'] for row in db.execute('PRAGMA table_info(meter_reading)')}
+    for name, decl in READING_COLUMNS.items():
+        if name not in existing:
+            db.execute(f'ALTER TABLE meter_reading ADD COLUMN {name} {decl}')
+    db.execute("UPDATE meter_reading SET meter_id=site WHERE meter_id='' OR meter_id IS NULL")
+    if not db.execute('SELECT 1 FROM meter LIMIT 1').fetchone():
+        for row in db.execute('SELECT DISTINCT site FROM meter_reading').fetchall():
+            db.execute("INSERT INTO meter(meter_id,site,role,reversed) VALUES(?,?,?,?)",
+                       (row['site'], row['site'], 'top', 0))
 
 
 def connect(path):
     db=sqlite3.connect(path)
     db.row_factory=sqlite3.Row
     db.executescript(SCHEMA)
+    _migrate(db)
     return db
 
 

@@ -1,0 +1,99 @@
+{
+ "pages": [
+  {
+   "event_id": "main-2026-10",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-10-31T18:05:00",
+   "meter_id": "M0",
+   "reading_at": "2026-10-31T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"M0\"><meta name=\"period\" content=\"2026-10\"><meta name=\"reading\" content=\"10000\"><meta name=\"reading_at\" content=\"2026-10-31T18:00:00\"></head></html>"
+  },
+  {
+   "event_id": "branch-a-2026-10",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-10-31T18:05:00",
+   "meter_id": "MA",
+   "reading_at": "2026-10-31T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"MA\"><meta name=\"period\" content=\"2026-10\"><meta name=\"reading\" content=\"4000\"><meta name=\"reading_at\" content=\"2026-10-31T18:00:00\"></head></html>"
+  },
+  {
+   "event_id": "branch-b-2026-10",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-10-31T18:05:00",
+   "meter_id": "MB",
+   "reading_at": "2026-10-31T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"MB\"><meta name=\"period\" content=\"2026-10\"><meta name=\"reading\" content=\"3000\"><meta name=\"reading_at\" content=\"2026-10-31T18:00:00\"></head></html>"
+  },
+  {
+   "event_id": "main-2026-11",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-11-30T18:05:00",
+   "meter_id": "M0",
+   "reading_at": "2026-11-30T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"M0\"><meta name=\"period\" content=\"2026-11\"><meta name=\"reading\" content=\"11000\"><meta name=\"reading_at\" content=\"2026-11-30T18:00:00\"></head></html>"
+  },
+  {
+   "event_id": "branch-a-2026-11",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-11-30T18:05:00",
+   "meter_id": "MA",
+   "reading_at": "2026-11-30T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"MA\"><meta name=\"period\" content=\"2026-11\"><meta name=\"reading\" content=\"4400\"><meta name=\"reading_at\" content=\"2026-11-30T18:00:00\"></head></html>"
+  },
+  {
+   "event_id": "branch-b-2026-11",
+   "supplier": "utility-a",
+   "site": "laundry-a",
+   "fetched_at": "2026-11-30T18:05:00",
+   "meter_id": "MB",
+   "reading_at": "2026-11-05T18:00:00",
+   "html": "<html><head><meta name=\"site\" content=\"laundry-a\"><meta name=\"meter_id\" content=\"MB\"><meta name=\"period\" content=\"2026-11\"><meta name=\"reading\" content=\"3420\"><meta name=\"reading_at\" content=\"2026-11-05T18:00:00\"></head></html>"
+  }
+ ],
+ "topology": [
+  {
+   "event_id": "topo-main",
+   "site": "laundry-a",
+   "meter_id": "M0",
+   "branch_id": "main",
+   "parent_meter": null,
+   "action": "install",
+   "effective_at": "2020-01-01T00:00:00",
+   "segment": "main",
+   "document_id": "wiring-2020",
+   "signer_a": "utility-a",
+   "signer_b": "shop-owner"
+  },
+  {
+   "event_id": "topo-a",
+   "site": "laundry-a",
+   "meter_id": "MA",
+   "branch_id": "wash-line",
+   "parent_meter": "M0",
+   "action": "install",
+   "effective_at": "2020-01-01T00:00:00",
+   "segment": "wash",
+   "document_id": "wiring-2020",
+   "signer_a": "utility-a",
+   "signer_b": "shop-owner"
+  },
+  {
+   "event_id": "topo-b",
+   "site": "laundry-a",
+   "meter_id": "MB",
+   "branch_id": "dry-line",
+   "parent_meter": "M0",
+   "action": "install",
+   "effective_at": "2020-01-01T00:00:00",
+   "segment": "dry",
+   "document_id": "wiring-2020",
+   "signer_a": "utility-a",
+   "signer_b": "shop-owner"
+  }
+ ]
+}
