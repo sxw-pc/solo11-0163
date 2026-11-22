@@ -13,6 +13,8 @@ def decide(db,garment_id):
         state,reason,payable,frozen='pending','return receipt missing',0,0
     else:
         receipt=receipts[0]
+        nominal=process['nominal_state'] if process and process['nominal_state'] else (process['state'] if process else None)
+        nominal_intake=intake['state'] if intake else None
         authority=db.execute('SELECT * FROM pickup_authority WHERE garment_id=? AND person=? AND valid_to>=? ORDER BY valid_to DESC',
                              (garment_id,receipt['person'],receipt['at'][:10])).fetchone()
         baseline=db.execute('SELECT * FROM intake_photo WHERE event_id=?',(intake['photo_id'],)).fetchone() if intake and intake['photo_id'] else None
@@ -22,9 +24,9 @@ def decide(db,garment_id):
         frozen=0
         if not authority or authority['owner_signer']!=garment['owner'] or receipt['owner_signer']!=receipt['person'] or receipt['bag']!=garment['expected_bag']:
             state,reason='blocked','pickup authority, recipient signature or sealed bag identity invalid'
-        elif not intake or intake['state']!='accepted':
+        elif not intake or nominal_intake!='accepted':
             state,reason='blocked','signed intake baseline unavailable'
-        elif not process or process['state'] not in ('completed','deviation','custody_gap'):
+        elif not process or nominal not in ('completed','deviation','custody_gap'):
             state,reason='blocked','care process has not reached return stage'
         elif not claims:
             state,reason='returned','no timely compensation claim'
@@ -38,13 +40,13 @@ def decide(db,garment_id):
                     state,reason='preexisting','claimed damage already fixed at intake'
                 else:
                     frozen=min(cap,max(c['requested_amount'] for c in new))
-                    if process['state'] in ('deviation','custody_gap'):
+                    if nominal in ('deviation','custody_gap'):
                         state,reason='liable','new damage follows documented process or custody deviation'
                         payable=frozen
                         frozen=0
                     else:
                         state,reason='review','new damage requires separate liability review'
-    return update(db,'compensation_decision',garment_id,state=state,reason=reason,payable=payable,frozen=frozen)
+    return update(db,'compensation_decision',garment_id,state=state,reason=reason,payable=payable,frozen=frozen,nominal_state=state)
 
 
 def import_data(db,data):

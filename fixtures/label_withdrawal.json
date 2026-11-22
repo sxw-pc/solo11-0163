@@ -1,0 +1,1 @@
+{"withdrawals":[{"event_id":"withdrawal-v2","source":"maker-a","sku":"coat-sku-1","fetched_at":"2026-10-18T08:00:00","target_event":"page-v2","declared_effective_at":"2026-10-18T00:00:00","signer":"maker-a/compliance","reason":"v2 care direction was issued in error; v1 remains withdrawn in favour of a future v3","target_source":"maker-a","target_revision":"2"}]}

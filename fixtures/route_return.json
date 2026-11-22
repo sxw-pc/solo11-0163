@@ -1,0 +1,1 @@
+{"authorities":[{"event_id":"auth-1","garment_id":"coat-1","person":"picker-1","owner_signer":"owner-1","valid_to":"2026-11-10"}],"receipts":[{"event_id":"return-1","garment_id":"coat-1","person":"picker-1","at":"2026-11-04","bag":"bag-coat-1","condition":"clean","owner_signer":"picker-1"}]}

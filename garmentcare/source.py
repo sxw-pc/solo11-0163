@@ -1,9 +1,33 @@
+"""Evidence storage and deterministic content digests.
+
+Two different questions are kept apart here:
+
+* the *event* digest identifies one collected envelope (``record``);
+* the *content* digest identifies the bytes of a published page, so two
+  fetches of the same page are recognisable as one publication even when
+  their event ids or fetch timestamps differ.
+"""
+
 import hashlib
 import json
 
 
+def canonical_json(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+
+
+def digest(value):
+    return hashlib.sha256(canonical_json(value).encode()).hexdigest()
+
+
+def sha256(raw):
+    if isinstance(raw, str):
+        raw = raw.encode()
+    return hashlib.sha256(raw).hexdigest()
+
+
 def record(db, event_id, kind, value):
-    body = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+    body = canonical_json(value)
     sha = hashlib.sha256(body.encode()).hexdigest()
     old = db.execute('SELECT kind,sha FROM evidence WHERE event_id=?', (event_id,)).fetchone()
     if old:
