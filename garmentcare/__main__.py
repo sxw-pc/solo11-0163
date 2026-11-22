@@ -10,7 +10,12 @@ from .store import connect
 def run_import(db,command,raw):
     data=json.loads(raw)
     file_record(db,command,raw)
-    return {'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data,'campaign-import':campaign.import_data}[command](db,data)
+    result={'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data,'campaign-import':campaign.import_data}[command](db,data)
+    if command=='garment-import':
+        # Accepted/blocked intake results gate what counts as a real store entry.
+        from .attribution import reevaluate
+        reevaluate(db)
+    return result
 
 
 def audit(db):

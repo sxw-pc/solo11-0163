@@ -1,0 +1,30 @@
+{
+  "touches": [
+    {"event_id": "touch-a", "visitor": "visitor-1", "campaign": "campaign-a", "channel": "qr", "at": "2026-11-02T09:00:00"},
+    {"event_id": "touch-b", "visitor": "visitor-1", "campaign": "campaign-b", "channel": "qr", "at": "2026-11-02T15:00:00"}
+  ],
+  "shared_device_declarations": [
+    {"event_id": "decl-1", "visitor": "visitor-1", "users": ["customer-jia", "customer-spouse"], "declarant": "customer-jia", "at": "2026-11-02T08:30:00"}
+  ],
+  "identity_links": [
+    {"event_id": "link-jia", "visitor": "visitor-1", "customer": "customer-jia", "kind": "signed_phone", "account": "phone-family", "at": "2026-11-02T08:30:00"},
+    {"event_id": "link-spouse", "visitor": "visitor-1", "customer": "customer-spouse", "kind": "signed_phone", "account": "phone-family", "at": "2026-11-02T08:30:00"}
+  ],
+  "coupon_issues": [
+    {"event_id": "issue-a", "coupon_no": "QP-A-001", "campaign": "campaign-a", "shop": "shop-1", "visitor": "visitor-1", "issued_at": "2026-11-02T09:05:00"}
+  ],
+  "referrals": [
+    {"event_id": "ref-1", "referrer": "customer-yi", "referee": "customer-jia", "campaign": "campaign-a", "at": "2026-11-02T15:40:00", "referrer_signer": "customer-yi", "referee_signer": "customer-jia", "clerk_signer": "clerk-1"}
+  ],
+  "coupon_redeems": [
+    {"event_id": "redeem-a", "coupon_no": "QP-A-001", "campaign": "campaign-a", "shop": "shop-1", "visit_id": "visit-jia-1", "at": "2026-11-02T16:00:00", "customer_signer": "customer-jia", "clerk_signer": "clerk-1", "referral_event_id": "ref-1"}
+  ],
+  "bookings": [
+    {"event_id": "booking-jia-1", "visitor": "visitor-1", "garment_id": "coat-jia-1", "at": "2026-11-02T15:30:00"},
+    {"event_id": "booking-jia-2", "visitor": "visitor-1", "garment_id": "coat-jia-2", "at": "2026-11-02T15:35:00"}
+  ],
+  "store_visits": [
+    {"event_id": "visit-jia-1", "customer": "customer-jia", "shop": "shop-1", "at": "2026-11-02T16:00:00", "garment_id": "coat-jia-1", "status": "signed", "customer_signer": "customer-jia", "clerk_signer": "clerk-1"},
+    {"event_id": "visit-jia-2", "customer": "customer-jia", "shop": "shop-1", "at": "2026-11-02T16:10:00", "garment_id": "coat-jia-2", "status": "signed", "customer_signer": "customer-jia", "clerk_signer": "clerk-1"}
+  ]
+}

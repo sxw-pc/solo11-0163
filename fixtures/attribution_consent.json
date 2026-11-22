@@ -1,0 +1,18 @@
+{
+  "touches": [
+    {"event_id": "touch-ding-1", "visitor": "visitor-4", "campaign": "campaign-a", "channel": "web", "at": "2026-11-02T09:00:00"},
+    {"event_id": "touch-ding-2", "visitor": "visitor-4", "campaign": "campaign-b", "channel": "web", "at": "2026-11-02T11:00:00"}
+  ],
+  "identity_links": [
+    {"event_id": "link-ding", "visitor": "visitor-4", "customer": "customer-ding", "kind": "signed_web", "account": "ding@example", "at": "2026-11-02T08:50:00"}
+  ],
+  "consent_withdrawals": [
+    {"event_id": "withdraw-1", "visitor": "visitor-4", "at": "2026-11-02T10:00:00"}
+  ],
+  "bookings": [
+    {"event_id": "booking-ding-1", "visitor": "visitor-4", "garment_id": "coat-ding-1", "at": "2026-11-02T11:30:00"}
+  ],
+  "store_visits": [
+    {"event_id": "visit-ding-1", "customer": "customer-ding", "shop": "shop-2", "at": "2026-11-02T12:00:00", "garment_id": "coat-ding-1", "status": "signed", "customer_signer": "customer-ding", "clerk_signer": "clerk-2"}
+  ]
+}

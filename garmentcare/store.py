@@ -17,7 +17,17 @@ CREATE TABLE IF NOT EXISTS compensation_decision(garment_id TEXT PRIMARY KEY,sta
 CREATE TABLE IF NOT EXISTS decision_history(id INTEGER PRIMARY KEY,subsystem TEXT NOT NULL,garment_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS campaign_touch(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,campaign TEXT NOT NULL,channel TEXT NOT NULL,at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS service_booking(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,garment_id TEXT NOT NULL,at TEXT NOT NULL);
-CREATE TABLE IF NOT EXISTS acquisition_decision(booking_id TEXT PRIMARY KEY,state TEXT NOT NULL,campaign TEXT,source_event TEXT);
+CREATE TABLE IF NOT EXISTS qr_coupon_issue(event_id TEXT PRIMARY KEY,coupon_no TEXT NOT NULL,campaign TEXT NOT NULL,shop TEXT NOT NULL,visitor TEXT,issued_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS qr_coupon_redeem(event_id TEXT PRIMARY KEY,coupon_no TEXT NOT NULL,campaign TEXT NOT NULL,shop TEXT NOT NULL,visit_id TEXT,at TEXT NOT NULL,customer_signer TEXT NOT NULL,clerk_signer TEXT NOT NULL,referral_event_id TEXT,state TEXT NOT NULL,reason TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS referral_credential(event_id TEXT PRIMARY KEY,referrer TEXT NOT NULL,referee TEXT NOT NULL,campaign TEXT NOT NULL,at TEXT NOT NULL,referrer_signer TEXT NOT NULL,referee_signer TEXT NOT NULL,clerk_signer TEXT NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS shared_device_declaration(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,users TEXT NOT NULL,declarant TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS identity_link(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,customer TEXT NOT NULL,kind TEXT NOT NULL,account TEXT,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS consent_withdrawal(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS login_commitment(event_id TEXT PRIMARY KEY,customer TEXT NOT NULL,campaign TEXT NOT NULL,session_id TEXT NOT NULL,account TEXT NOT NULL,at TEXT NOT NULL,signer TEXT NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS store_visit(event_id TEXT PRIMARY KEY,customer TEXT NOT NULL,shop TEXT NOT NULL,at TEXT NOT NULL,garment_id TEXT,status TEXT NOT NULL,customer_signer TEXT NOT NULL,clerk_signer TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS touch_classification(event_id TEXT PRIMARY KEY,visitor TEXT NOT NULL,campaign TEXT,role TEXT NOT NULL,usable INTEGER NOT NULL,customer TEXT,reason TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS acquisition_decision(booking_id TEXT PRIMARY KEY,state TEXT NOT NULL,campaign TEXT,source_event TEXT,customer TEXT,evidence_kind TEXT,reason TEXT NOT NULL,version INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS customer_acquisition(customer TEXT PRIMARY KEY,state TEXT NOT NULL,campaign TEXT,source_event TEXT,evidence_kind TEXT,first_at TEXT,reason TEXT NOT NULL,version INTEGER NOT NULL);
 """
 
 

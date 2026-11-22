@@ -1,0 +1,20 @@
+{
+  "touches": [
+    {"event_id": "touch-bing", "visitor": "visitor-3", "campaign": "campaign-a", "channel": "qr", "at": "2026-11-02T10:00:00"}
+  ],
+  "identity_links": [
+    {"event_id": "link-bing", "visitor": "visitor-3", "customer": "customer-bing", "kind": "signed_phone", "account": "phone-bing", "at": "2026-11-02T10:05:00"}
+  ],
+  "coupon_issues": [
+    {"event_id": "issue-bing", "coupon_no": "QP-A-009", "campaign": "campaign-a", "shop": "shop-1", "visitor": "visitor-3", "issued_at": "2026-11-02T10:06:00"}
+  ],
+  "coupon_redeems": [
+    {"event_id": "redeem-bing", "coupon_no": "QP-A-009", "campaign": "campaign-a", "shop": "shop-1", "visit_id": "visit-bing-1", "at": "2026-11-02T11:00:00", "customer_signer": "customer-bing", "clerk_signer": "clerk-1", "referral_event_id": null}
+  ],
+  "bookings": [
+    {"event_id": "booking-bing-1", "visitor": "visitor-3", "garment_id": "coat-bing-1", "at": "2026-11-02T10:30:00"}
+  ],
+  "store_visits": [
+    {"event_id": "visit-bing-1", "customer": "customer-bing", "shop": "shop-1", "at": "2026-11-02T11:00:00", "garment_id": "coat-bing-1", "status": "signed", "customer_signer": "customer-bing", "clerk_signer": "clerk-1"}
+  ]
+}

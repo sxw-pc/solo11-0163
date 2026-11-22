@@ -1,0 +1,16 @@
+{
+  "garments": [
+    {"event_id": "g-jia-1", "id": "coat-jia-1", "owner": "customer-jia", "material": "wool", "accepted_at": "2026-11-02", "declared_value": 10000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-1", "claim_until": "2026-11-20", "expected_bag": "bag-jia-1"},
+    {"event_id": "g-jia-2", "id": "coat-jia-2", "owner": "customer-jia", "material": "silk", "accepted_at": "2026-11-02", "declared_value": 8000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-1", "claim_until": "2026-11-20", "expected_bag": "bag-jia-2"},
+    {"event_id": "g-yi-1", "id": "coat-yi-1", "owner": "customer-yi", "material": "wool", "accepted_at": "2026-11-02", "declared_value": 9000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-2", "claim_until": "2026-11-20", "expected_bag": "bag-yi-1"},
+    {"event_id": "g-bing-1", "id": "coat-bing-1", "owner": "customer-bing", "material": "wool", "accepted_at": "2026-11-02", "declared_value": 7000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-3", "claim_until": "2026-11-20", "expected_bag": "bag-bing-1"},
+    {"event_id": "g-ding-1", "id": "coat-ding-1", "owner": "customer-ding", "material": "wool", "accepted_at": "2026-11-02", "declared_value": 6000, "cap_rate": 50, "allowed_process": "dry", "pickup_person": "picker-4", "claim_until": "2026-11-20", "expected_bag": "bag-ding-1"}
+  ],
+  "photos": [
+    {"event_id": "p-jia-1", "garment_id": "coat-jia-1", "version": 1, "photo_sha": "intake-jia-1", "damage": [], "owner_signer": "customer-jia", "clerk_signer": "clerk-1", "material": "wool"},
+    {"event_id": "p-jia-2", "garment_id": "coat-jia-2", "version": 1, "photo_sha": "intake-jia-2", "damage": [], "owner_signer": "customer-jia", "clerk_signer": "clerk-1", "material": "silk"},
+    {"event_id": "p-yi-1", "garment_id": "coat-yi-1", "version": 1, "photo_sha": "intake-yi-1", "damage": [], "owner_signer": "customer-yi", "clerk_signer": "clerk-2", "material": "wool"},
+    {"event_id": "p-bing-1", "garment_id": "coat-bing-1", "version": 1, "photo_sha": "intake-bing-1", "damage": [], "owner_signer": "customer-bing", "clerk_signer": "clerk-1", "material": "wool"},
+    {"event_id": "p-ding-1", "garment_id": "coat-ding-1", "version": 1, "photo_sha": "intake-ding-1", "damage": [], "owner_signer": "customer-ding", "clerk_signer": "clerk-2", "material": "wool"}
+  ]
+}

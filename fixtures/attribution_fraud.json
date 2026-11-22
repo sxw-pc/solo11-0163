@@ -1,0 +1,29 @@
+{
+  "touches": [
+    {"event_id": "touch-ding-1", "visitor": "visitor-4", "campaign": "campaign-a", "channel": "web", "at": "2026-11-02T09:00:00"}
+  ],
+  "identity_links": [
+    {"event_id": "link-ding", "visitor": "visitor-4", "customer": "customer-ding", "kind": "signed_web", "account": "ding@example", "at": "2026-11-02T08:50:00"}
+  ],
+  "coupon_issues": [
+    {"event_id": "issue-collide-1", "coupon_no": "QP-X-1", "campaign": "campaign-a", "shop": "shop-1", "visitor": "visitor-4", "issued_at": "2026-11-02T09:05:00"},
+    {"event_id": "issue-collide-2", "coupon_no": "QP-X-1", "campaign": "campaign-b", "shop": "shop-2", "visitor": "visitor-9", "issued_at": "2026-11-02T09:10:00"},
+    {"event_id": "issue-shot-1", "coupon_no": "QP-X-2", "campaign": "campaign-a", "shop": "shop-1", "visitor": "visitor-4", "issued_at": "2026-11-02T09:06:00"}
+  ],
+  "referrals": [
+    {"event_id": "ref-self", "referrer": "customer-ding", "referee": "customer-ding", "campaign": "campaign-a", "at": "2026-11-02T09:20:00", "referrer_signer": "customer-ding", "referee_signer": "customer-ding", "clerk_signer": "clerk-2"},
+    {"event_id": "ref-wrong", "referrer": "customer-yi", "referee": "customer-ding", "campaign": "campaign-a", "at": "2026-11-02T09:25:00", "referrer_signer": "customer-yi", "referee_signer": "stranger", "clerk_signer": "clerk-2"}
+  ],
+  "coupon_redeems": [
+    {"event_id": "redeem-collide", "coupon_no": "QP-X-1", "campaign": "campaign-a", "shop": "shop-2", "visit_id": "visit-ding-1", "at": "2026-11-02T12:00:00", "customer_signer": "customer-ding", "clerk_signer": "clerk-2", "referral_event_id": null},
+    {"event_id": "redeem-shot-1", "coupon_no": "QP-X-2", "campaign": "campaign-a", "shop": "shop-1", "visit_id": "visit-ding-1", "at": "2026-11-02T12:05:00", "customer_signer": "customer-ding", "clerk_signer": "clerk-2", "referral_event_id": null},
+    {"event_id": "redeem-shot-2", "coupon_no": "QP-X-2", "campaign": "campaign-a", "shop": "shop-1", "visit_id": "visit-ding-1", "at": "2026-11-02T12:06:00", "customer_signer": "customer-ding", "clerk_signer": "clerk-2", "referral_event_id": null},
+    {"event_id": "redeem-ref-wrong", "coupon_no": "QP-X-1", "campaign": "campaign-b", "shop": "shop-2", "visit_id": "visit-ding-1", "at": "2026-11-02T12:07:00", "customer_signer": "customer-ding", "clerk_signer": "clerk-2", "referral_event_id": "ref-wrong"}
+  ],
+  "bookings": [
+    {"event_id": "booking-ding-1", "visitor": "visitor-4", "garment_id": "coat-ding-1", "at": "2026-11-02T11:30:00"}
+  ],
+  "store_visits": [
+    {"event_id": "visit-ding-1", "customer": "customer-ding", "shop": "shop-2", "at": "2026-11-02T12:00:00", "garment_id": "coat-ding-1", "status": "signed", "customer_signer": "customer-ding", "clerk_signer": "clerk-2"}
+  ]
+}
