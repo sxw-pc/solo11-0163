@@ -1,0 +1,92 @@
+{
+  "sampling_tasks": [
+    {
+      "task_id": "t-busy-1",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "busy",
+      "slot_at": "2026-11-11T11:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-busy-2",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "busy",
+      "slot_at": "2026-11-12T11:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-busy-3",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "busy",
+      "slot_at": "2026-11-13T11:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-busy-4",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "busy",
+      "slot_at": "2026-11-14T11:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-busy-5",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "busy",
+      "slot_at": "2026-11-15T11:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-1",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-11T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-2",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-12T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-3",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-13T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-4",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-14T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-5",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-15T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    },
+    {
+      "task_id": "t-idle-6",
+      "plan_id": "plan-shop-a-w47",
+      "stratum": "idle",
+      "slot_at": "2026-11-16T14:30:00",
+      "promise_minutes": 10,
+      "signed_at": "2026-11-16T08:05:00"
+    }
+  ]
+}

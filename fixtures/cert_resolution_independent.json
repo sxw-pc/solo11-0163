@@ -1,0 +1,13 @@
+{
+  "ticket_resolutions": [
+    {
+      "event_id": "res-10-independent",
+      "plan_id": "plan-shop-a-w47",
+      "ticket_ref": "Q-09",
+      "visit_event_id": "visit-10",
+      "verdict": "independent",
+      "chain_ref": "device-chain://queue-terminal-1/signed/Q-09/second-scan-distinct-party",
+      "decided_at": "2026-11-20T18:00:00"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "late_receipts": [
+    {
+      "event_id": "late-receipt-visit-01",
+      "visit_event_id": "visit-01",
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 18,
+        "at": "2026-11-16T11:40:00",
+        "device_sig": "sig:reception:late-upload-visit-01"
+      },
+      "received_at": "2026-11-22T09:00:00"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "promise_changes": [
+    {
+      "event_id": "policy-shop-b-15",
+      "shop": "shop-b",
+      "promise_minutes": 15,
+      "changed_at": "2026-11-20T08:00:00"
+    }
+  ]
+}

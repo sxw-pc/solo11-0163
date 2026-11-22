@@ -1,0 +1,40 @@
+{
+  "visits": [
+    {
+      "event_id": "visit-11",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-6",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-11",
+      "observed_at": "2026-11-21T16:20:00",
+      "assessor": "assessor-11",
+      "service_check_id": "check-11",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-2",
+        "ticket": "Q-11",
+        "issued_at": "2026-11-21T16:20:00",
+        "device_sig": "sig:queue:Q-11"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-21T16:20:00",
+        "device_sig": "sig:reception:2026-11-21T16:20:00"
+      },
+      "presence_ref": "presence:geo-checkin-11",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-21T16:20:00"
+    }
+  ],
+  "checks": [
+    {
+      "event_id": "check-11",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-11",
+      "observed_at": "2026-11-21T16:20:00",
+      "assessor": "assessor-11",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    }
+  ]
+}

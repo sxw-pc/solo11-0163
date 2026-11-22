@@ -17,6 +17,16 @@ CREATE TABLE IF NOT EXISTS compensation_decision(garment_id TEXT PRIMARY KEY,sta
 CREATE TABLE IF NOT EXISTS decision_history(id INTEGER PRIMARY KEY,subsystem TEXT NOT NULL,garment_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS service_check(event_id TEXT PRIMARY KEY,shop TEXT NOT NULL,visit_id TEXT NOT NULL,observed_at TEXT NOT NULL,assessor TEXT NOT NULL,queue_minutes INTEGER NOT NULL,promise_minutes INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS store_grade(shop TEXT PRIMARY KEY,state TEXT NOT NULL,failed_visits INTEGER NOT NULL,checked_visits INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS sampling_plan(plan_id TEXT PRIMARY KEY,shop TEXT NOT NULL,week TEXT NOT NULL,min_per_stratum INTEGER NOT NULL,on_time_threshold INTEGER NOT NULL,promise_minutes INTEGER NOT NULL,sealed_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS sampling_stratum(plan_id TEXT NOT NULL,stratum TEXT NOT NULL,frame TEXT NOT NULL,min_samples INTEGER NOT NULL,PRIMARY KEY(plan_id,stratum));
+CREATE TABLE IF NOT EXISTS sampling_task(task_id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,stratum TEXT NOT NULL,slot_at TEXT NOT NULL,promise_minutes INTEGER NOT NULL,signed_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS visit_evidence(event_id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,task_id TEXT NOT NULL,shop TEXT NOT NULL,visit_id TEXT NOT NULL,stratum TEXT NOT NULL,observed_at TEXT NOT NULL,assessor TEXT NOT NULL,service_check_id TEXT,check_in_receipt TEXT NOT NULL,service_receipt TEXT,presence_ref TEXT NOT NULL,observed_minutes INTEGER NOT NULL,receipt_minutes INTEGER,uploaded_at TEXT,effective_minutes INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS ticket_resolution(event_id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,ticket_ref TEXT NOT NULL,visit_event_id TEXT NOT NULL,verdict TEXT NOT NULL,chain_ref TEXT NOT NULL,decided_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS certificate(plan_id TEXT NOT NULL,version INTEGER NOT NULL,cert_id TEXT NOT NULL,state TEXT NOT NULL,issued_at TEXT NOT NULL,revoked_at TEXT,reason TEXT NOT NULL,valid_sample_count INTEGER NOT NULL,on_time_count INTEGER NOT NULL,stratum_summary TEXT NOT NULL,recipients TEXT NOT NULL,content_sha TEXT NOT NULL,PRIMARY KEY(plan_id,version));
+CREATE TABLE IF NOT EXISTS certification_decision(plan_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,valid_samples INTEGER NOT NULL,on_time_samples INTEGER NOT NULL,late_samples INTEGER NOT NULL,stratum_summary TEXT NOT NULL,version INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS certification_history(id INTEGER PRIMARY KEY,plan_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS rectification(plan_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,opened_at TEXT NOT NULL,closed_at TEXT);
+CREATE TABLE IF NOT EXISTS promise_policy(event_id TEXT PRIMARY KEY,shop TEXT NOT NULL,promise_minutes INTEGER NOT NULL,changed_at TEXT NOT NULL);
 """
 
 

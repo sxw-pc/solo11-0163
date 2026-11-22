@@ -1,0 +1,346 @@
+{
+  "checks": [
+    {
+      "event_id": "check-01",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-01",
+      "observed_at": "2026-11-11T11:30:00",
+      "assessor": "assessor-01",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-02",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-02",
+      "observed_at": "2026-11-12T11:30:00",
+      "assessor": "assessor-02",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-03",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-03",
+      "observed_at": "2026-11-13T11:30:00",
+      "assessor": "assessor-03",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-04",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-04",
+      "observed_at": "2026-11-14T11:30:00",
+      "assessor": "assessor-04",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-05",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-05",
+      "observed_at": "2026-11-15T11:30:00",
+      "assessor": "assessor-05",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-06",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-06",
+      "observed_at": "2026-11-16T14:30:00",
+      "assessor": "assessor-06",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-07",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-07",
+      "observed_at": "2026-11-17T14:30:00",
+      "assessor": "assessor-07",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-08",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-08",
+      "observed_at": "2026-11-18T14:30:00",
+      "assessor": "assessor-08",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-09",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-09",
+      "observed_at": "2026-11-19T14:30:00",
+      "assessor": "assessor-09",
+      "queue_minutes": 8,
+      "promise_minutes": 10
+    },
+    {
+      "event_id": "check-10",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-10",
+      "observed_at": "2026-11-20T15:10:00",
+      "assessor": "assessor-10",
+      "queue_minutes": 18,
+      "promise_minutes": 10
+    }
+  ],
+  "visits": [
+    {
+      "event_id": "visit-01",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-busy-1",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-01",
+      "observed_at": "2026-11-11T11:30:00",
+      "assessor": "assessor-01",
+      "service_check_id": "check-01",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-01",
+        "issued_at": "2026-11-11T11:30:00",
+        "device_sig": "sig:queue:Q-01"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-11T11:30:00",
+        "device_sig": "sig:reception:2026-11-11T11:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-01",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-11T11:30:00"
+    },
+    {
+      "event_id": "visit-02",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-busy-2",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-02",
+      "observed_at": "2026-11-12T11:30:00",
+      "assessor": "assessor-02",
+      "service_check_id": "check-02",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-02",
+        "issued_at": "2026-11-12T11:30:00",
+        "device_sig": "sig:queue:Q-02"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-12T11:30:00",
+        "device_sig": "sig:reception:2026-11-12T11:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-02",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-12T11:30:00"
+    },
+    {
+      "event_id": "visit-03",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-busy-3",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-03",
+      "observed_at": "2026-11-13T11:30:00",
+      "assessor": "assessor-03",
+      "service_check_id": "check-03",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-03",
+        "issued_at": "2026-11-13T11:30:00",
+        "device_sig": "sig:queue:Q-03"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-13T11:30:00",
+        "device_sig": "sig:reception:2026-11-13T11:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-03",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-13T11:30:00"
+    },
+    {
+      "event_id": "visit-04",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-busy-4",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-04",
+      "observed_at": "2026-11-14T11:30:00",
+      "assessor": "assessor-04",
+      "service_check_id": "check-04",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-04",
+        "issued_at": "2026-11-14T11:30:00",
+        "device_sig": "sig:queue:Q-04"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-14T11:30:00",
+        "device_sig": "sig:reception:2026-11-14T11:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-04",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-14T11:30:00"
+    },
+    {
+      "event_id": "visit-05",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-busy-5",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-05",
+      "observed_at": "2026-11-15T11:30:00",
+      "assessor": "assessor-05",
+      "service_check_id": "check-05",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-05",
+        "issued_at": "2026-11-15T11:30:00",
+        "device_sig": "sig:queue:Q-05"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-15T11:30:00",
+        "device_sig": "sig:reception:2026-11-15T11:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-05",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-15T11:30:00"
+    },
+    {
+      "event_id": "visit-06",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-1",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-06",
+      "observed_at": "2026-11-16T14:30:00",
+      "assessor": "assessor-06",
+      "service_check_id": "check-06",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-06",
+        "issued_at": "2026-11-16T14:30:00",
+        "device_sig": "sig:queue:Q-06"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-16T14:30:00",
+        "device_sig": "sig:reception:2026-11-16T14:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-06",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-16T14:30:00"
+    },
+    {
+      "event_id": "visit-07",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-2",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-07",
+      "observed_at": "2026-11-17T14:30:00",
+      "assessor": "assessor-07",
+      "service_check_id": "check-07",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-07",
+        "issued_at": "2026-11-17T14:30:00",
+        "device_sig": "sig:queue:Q-07"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-17T14:30:00",
+        "device_sig": "sig:reception:2026-11-17T14:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-07",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-17T14:30:00"
+    },
+    {
+      "event_id": "visit-08",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-3",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-08",
+      "observed_at": "2026-11-18T14:30:00",
+      "assessor": "assessor-08",
+      "service_check_id": "check-08",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-08",
+        "issued_at": "2026-11-18T14:30:00",
+        "device_sig": "sig:queue:Q-08"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-18T14:30:00",
+        "device_sig": "sig:reception:2026-11-18T14:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-08",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-18T14:30:00"
+    },
+    {
+      "event_id": "visit-09",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-4",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-09",
+      "observed_at": "2026-11-19T14:30:00",
+      "assessor": "assessor-09",
+      "service_check_id": "check-09",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-09",
+        "issued_at": "2026-11-19T14:30:00",
+        "device_sig": "sig:queue:Q-09"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-1",
+        "minutes": 8,
+        "at": "2026-11-19T14:30:00",
+        "device_sig": "sig:reception:2026-11-19T14:30:00"
+      },
+      "presence_ref": "presence:geo-checkin-09",
+      "observed_minutes": 8,
+      "uploaded_at": "2026-11-19T14:30:00"
+    },
+    {
+      "event_id": "visit-10",
+      "plan_id": "plan-shop-a-w47",
+      "task_id": "t-idle-5",
+      "shop": "shop-a",
+      "visit_id": "phys-visit-10",
+      "observed_at": "2026-11-20T15:10:00",
+      "assessor": "assessor-10",
+      "service_check_id": "check-10",
+      "check_in_receipt": {
+        "terminal": "queue-terminal-1",
+        "ticket": "Q-09",
+        "issued_at": "2026-11-20T15:10:00",
+        "device_sig": "sig:queue:Q-09"
+      },
+      "service_receipt": {
+        "terminal": "reception-terminal-2",
+        "minutes": 18,
+        "at": "2026-11-20T15:10:00",
+        "device_sig": "sig:reception:2026-11-20T15:10:00"
+      },
+      "presence_ref": "presence:geo-checkin-10",
+      "observed_minutes": 18,
+      "uploaded_at": "2026-11-20T15:10:00"
+    }
+  ]
+}

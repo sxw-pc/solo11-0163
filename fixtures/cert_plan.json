@@ -1,0 +1,25 @@
+{
+  "sampling_plans": [
+    {
+      "plan_id": "plan-shop-a-w47",
+      "shop": "shop-a",
+      "week": "2026-W47",
+      "min_per_stratum": 5,
+      "on_time_threshold": 95,
+      "promise_minutes": 10,
+      "sealed_at": "2026-11-16T08:00:00",
+      "strata": [
+        {
+          "stratum": "busy",
+          "frame": "weekday 11:00-13:00 busy window",
+          "min_samples": 5
+        },
+        {
+          "stratum": "idle",
+          "frame": "weekday 14:00-17:00 idle window",
+          "min_samples": 5
+        }
+      ]
+    }
+  ]
+}
