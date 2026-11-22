@@ -12,4 +12,12 @@ def import_data(db, data):
                            (row['event_id'], row['garment_id'], row['at'], row['current_hem'], row['target_hem'], row['allowance'], row['signer']))
             garments.add(row['garment_id'])
         from .alteration import decide
-        return [decide(db, garment_id) for garment_id in sorted(garments)]
+        results = [decide(db, garment_id) for garment_id in sorted(garments)]
+        # A late measuring stick (e.g. a corrected target) recomputes rework
+        # acceptance, but never reverses cut receipts already on the ledger.
+        if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='hem_baseline'").fetchone():
+            from .rework import decide as rework_decide
+            for garment_id in sorted(garments):
+                if db.execute('SELECT 1 FROM hem_baseline WHERE garment_id=?', (garment_id,)).fetchone():
+                    rework_decide(db, garment_id)
+        return results

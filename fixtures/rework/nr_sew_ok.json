@@ -1,0 +1,1 @@
+{"sewing":[{"event_id":"sew-n1","garment_id":"coat-n1","at":"2026-11-04T14:00:00","route":"narrow_let_out","finished_edge":"narrow overlock 1cm hem kept"}],"remeasures":[{"event_id":"rm-n1-ok","garment_id":"coat-n1","at":"2026-11-04T16:00:00","phase":"post_rework","measured_hem":94,"sew_id":"sew-n1","measurer_signer":"tailor-1","owner_signer":"owner-1"}]}

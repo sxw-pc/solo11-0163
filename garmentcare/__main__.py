@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from . import intake,process,returns,fit
+from . import intake,process,returns,fit,rework
 from .report import report,dumps
 from .source import file_record
 from .store import connect
@@ -10,7 +10,7 @@ from .store import connect
 def run_import(db,command,raw):
     data=json.loads(raw)
     file_record(db,command,raw)
-    return {'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data,'fit-import':fit.import_data}[command](db,data)
+    return {'garment-import':intake.import_data,'process-import':process.import_data,'return-import':returns.import_data,'fit-import':fit.import_data,'rework-import':rework.import_data}[command](db,data)
 
 
 def audit(db):
@@ -19,13 +19,19 @@ def audit(db):
         rows=db.execute('SELECT kind,raw FROM file_journal ORDER BY id').fetchall()
         for row in rows:run_import(replay,row['kind'],row['raw'])
         if report(db)!=report(replay):raise ValueError('replayed source files disagree with decisions')
-        return {'status':'matched','source_files':len(rows)}
+        rework_check=None
+        if replay.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='hem_baseline'").fetchone() and \
+                replay.execute('SELECT 1 FROM hem_baseline LIMIT 1').fetchone():
+            rework_check=rework.audit_recompute(replay)
+        result={'status':'matched','source_files':len(rows)}
+        if rework_check:result['rework_audit']=rework_check
+        return result
     finally:replay.close()
 
 
 def main(argv=None):
     p=argparse.ArgumentParser(prog='garmentcare')
-    p.add_argument('command',choices=['garment-import','process-import','return-import','fit-import','report','audit','demo'])
+    p.add_argument('command',choices=['garment-import','process-import','return-import','fit-import','rework-import','report','audit','demo'])
     p.add_argument('--db',required=True)
     p.add_argument('--file')
     a=p.parse_args(argv)
