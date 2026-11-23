@@ -1,0 +1,19 @@
+{
+  "orders": [
+    {"event_id": "ord-a", "order_id": "order-a", "garment_id": "suit-a", "customer": "cust-a", "receiving_shop": "shop-a", "amount": 600, "at": "2026-11-01"}
+  ],
+  "agreements": [
+    {"event_id": "agr-a", "order_id": "order-a", "garment_id": "suit-a", "from_shop": "shop-a", "to_shop": "shop-b", "fee": 300, "from_signer": "mgr-a", "to_signer": "mgr-b", "signed_at": "2026-11-01", "version": 1}
+  ],
+  "movements": [
+    {"event_id": "mv-a-pay-r", "order_id": "order-a", "garment_id": "suit-a", "direction": "customer_payment", "kind": "received", "payer": "cust-a", "payee": "shop-a", "amount": 600, "bank_ref": "ref-pay-a", "at": "2026-11-01T10:00"},
+    {"event_id": "mv-a-pay-p", "order_id": "order-a", "garment_id": "suit-a", "direction": "customer_payment", "kind": "applied", "payer": "cust-a", "payee": "shop-a", "amount": 600, "bank_ref": "ref-pay-a", "at": "2026-11-01T12:00"},
+    {"event_id": "mv-a-fee-r", "order_id": "order-a", "garment_id": "suit-a", "direction": "shop_transfer", "kind": "received", "payer": "shop-a", "payee": "shop-b", "amount": 300, "bank_ref": "ref-fee-a", "at": "2026-11-06T10:00"},
+    {"event_id": "mv-a-fee-p", "order_id": "order-a", "garment_id": "suit-a", "direction": "shop_transfer", "kind": "applied", "payer": "shop-a", "payee": "shop-b", "amount": 300, "bank_ref": "ref-fee-a", "at": "2026-11-06T12:00"},
+    {"event_id": "mv-a-comp-r", "order_id": "order-a", "garment_id": "suit-a", "direction": "compensation", "kind": "received", "payer": "shop-a", "payee": "cust-a", "amount": 100, "bank_ref": "ref-comp-a", "at": "2026-11-08T10:00"},
+    {"event_id": "mv-a-comp-p", "order_id": "order-a", "garment_id": "suit-a", "direction": "compensation", "kind": "applied", "payer": "shop-a", "payee": "cust-a", "amount": 100, "bank_ref": "ref-comp-a", "at": "2026-11-08T12:00"}
+  ],
+  "liabilities": [
+    {"event_id": "lib-a-1", "order_id": "order-a", "garment_id": "suit-a", "version": 1, "liable_shop": "from_shop", "amount": 100, "reason": "receiving shop accepts compensation under cross-shop agreement", "from_signer": "mgr-a", "to_signer": "mgr-b", "signed_at": "2026-11-07"}
+  ]
+}

@@ -1,0 +1,10 @@
+record_type,event_id,order_id,garment_id,customer,receiving_shop,from_shop,to_shop,fee,from_signer,to_signer,signed_at,version,direction,kind,payer,payee,amount,bank_ref,at,liable_shop,reason
+orders,ord-b,order-b,suit-b,cust-b,shop-a,,,,,,,,,,,,600,,2026-11-01,,
+agreements,agr-b,order-b,suit-b,,,shop-a,shop-b,300,mgr-a,mgr-b,2026-11-01,1,,,,,,,,,
+movements,mv-b-pay-r,order-b,suit-b,,,,,,,,,,customer_payment,received,cust-b,shop-a,600,ref-pay-b,2026-11-01T10:00,,
+movements,mv-b-pay-p,order-b,suit-b,,,,,,,,,,customer_payment,applied,cust-b,shop-a,600,ref-pay-b,2026-11-01T12:00,,
+movements,mv-b-fee-r,order-b,suit-b,,,,,,,,,,shop_transfer,received,shop-a,shop-b,300,ref-fee-b,2026-11-06T10:00,,
+movements,mv-b-fee-p,order-b,suit-b,,,,,,,,,,shop_transfer,applied,shop-a,shop-b,300,ref-fee-b,2026-11-06T12:00,,
+movements,mv-b-comp-r,order-b,suit-b,,,,,,,,,,compensation,received,shop-b,cust-b,100,ref-comp-b,2026-11-08T10:00,,
+movements,mv-b-comp-p,order-b,suit-b,,,,,,,,,,compensation,applied,shop-b,cust-b,100,ref-comp-b,2026-11-08T12:00,,
+liabilities,lib-b-1,order-b,suit-b,,,,,,mgr-a,mgr-b,2026-11-07,1,,,,,100,,,to_shop,processing deviation caused new damage

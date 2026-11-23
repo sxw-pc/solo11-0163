@@ -1,0 +1,6 @@
+{
+  "movements": [
+    {"event_id": "mv-c-comp2-r", "order_id": "order-c", "garment_id": "suit-c", "direction": "compensation", "kind": "received", "payer": "shop-a", "payee": "cust-c", "amount": 100, "bank_ref": "ref-comp-c2", "at": "2026-11-10T10:00"},
+    {"event_id": "mv-c-comp2-p", "order_id": "order-c", "garment_id": "suit-c", "direction": "compensation", "kind": "applied", "payer": "shop-a", "payee": "cust-c", "amount": 100, "bank_ref": "ref-comp-c2", "at": "2026-11-10T12:00"}
+  ]
+}

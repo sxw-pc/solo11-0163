@@ -44,7 +44,10 @@ def decide(db,garment_id):
                         frozen=0
                     else:
                         state,reason='review','new damage requires separate liability review'
-    return update(db,'compensation_decision',garment_id,state=state,reason=reason,payable=payable,frozen=frozen)
+    result=update(db,'compensation_decision',garment_id,state=state,reason=reason,payable=payable,frozen=frozen)
+    from .shop_settlement import decide as settlement_decide
+    settlement_decide(db,garment_id)
+    return result
 
 
 def import_data(db,data):

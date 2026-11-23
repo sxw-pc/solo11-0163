@@ -1,0 +1,20 @@
+{
+  "recipes": [
+    {"event_id": "rec-a", "garment_id": "suit-a", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-a"},
+    {"event_id": "rec-b", "garment_id": "suit-b", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-b"},
+    {"event_id": "rec-c", "garment_id": "suit-c", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-c"},
+    {"event_id": "rec-d", "garment_id": "suit-d", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-d"},
+    {"event_id": "rec-e", "garment_id": "suit-e", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-e"},
+    {"event_id": "rec-f", "garment_id": "suit-f", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-f"},
+    {"event_id": "rec-g", "garment_id": "suit-g", "version": 1, "process": "dry", "max_temp": 40, "banned_chemicals": ["bleach"], "approved_by": "cust-g"}
+  ],
+  "operations": [
+    {"event_id": "op-a-1", "garment_id": "suit-a", "recipe_id": "rec-a", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"},
+    {"event_id": "op-b-1", "garment_id": "suit-b", "recipe_id": "rec-b", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"},
+    {"event_id": "op-c-1", "garment_id": "suit-c", "recipe_id": "rec-c", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"},
+    {"event_id": "op-d-1", "garment_id": "suit-d", "recipe_id": "rec-d", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"},
+    {"event_id": "op-e-1", "garment_id": "suit-e", "recipe_id": "rec-e", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"},
+    {"event_id": "op-f-1", "garment_id": "suit-f", "recipe_id": "rec-f", "kind": "clean", "at": "2026-11-02", "temp": 30, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a"},
+    {"event_id": "op-g-1", "garment_id": "suit-g", "recipe_id": "rec-g", "kind": "clean", "at": "2026-11-02", "temp": 70, "chemical": "mild", "from_shop": "shop-a", "to_shop": "shop-b", "sender": "worker-a", "receiver": "worker-b"}
+  ]
+}

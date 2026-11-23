@@ -1,0 +1,6 @@
+{
+  "movements": [
+    {"event_id": "mv-e-rec-r", "order_id": "order-e", "garment_id": "suit-e", "direction": "recovery", "kind": "received", "payer": "shop-b", "payee": "shop-a", "amount": 100, "bank_ref": "ref-rec-e", "at": "2026-11-13T10:00"},
+    {"event_id": "mv-e-rec-p", "order_id": "order-e", "garment_id": "suit-e", "direction": "recovery", "kind": "applied", "payer": "shop-b", "payee": "shop-a", "amount": 100, "bank_ref": "ref-rec-e", "at": "2026-11-13T12:00"}
+  ]
+}

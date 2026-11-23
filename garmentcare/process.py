@@ -32,6 +32,8 @@ def decide(db,garment_id):
     result=update(db,'process_decision',garment_id,state=state,reason=reason,recipe_id=recipe_id)
     from .returns import decide as return_decide
     return_decide(db,garment_id)
+    from .shop_settlement import decide as settlement_decide
+    settlement_decide(db,garment_id)
     return result
 
 

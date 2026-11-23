@@ -1,0 +1,5 @@
+{
+  "liabilities": [
+    {"event_id": "lib-e-2", "order_id": "order-e", "garment_id": "suit-e", "version": 2, "liable_shop": "to_shop", "amount": 100, "reason": "re-adjudication: craft deviation by processing shop confirmed", "from_signer": "mgr-a", "to_signer": "mgr-b", "signed_at": "2026-11-12"}
+  ]
+}

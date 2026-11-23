@@ -1,0 +1,29 @@
+{
+  "authorities": [
+    {"event_id": "au-a", "garment_id": "suit-a", "person": "pick-a", "owner_signer": "cust-a", "valid_to": "2026-11-20"},
+    {"event_id": "au-b", "garment_id": "suit-b", "person": "pick-b", "owner_signer": "cust-b", "valid_to": "2026-11-20"},
+    {"event_id": "au-c", "garment_id": "suit-c", "person": "pick-c", "owner_signer": "cust-c", "valid_to": "2026-11-20"},
+    {"event_id": "au-d", "garment_id": "suit-d", "person": "pick-d", "owner_signer": "cust-d", "valid_to": "2026-11-20"},
+    {"event_id": "au-e", "garment_id": "suit-e", "person": "pick-e", "owner_signer": "cust-e", "valid_to": "2026-11-20"},
+    {"event_id": "au-f", "garment_id": "suit-f", "person": "pick-f", "owner_signer": "cust-f", "valid_to": "2026-11-20"},
+    {"event_id": "au-g", "garment_id": "suit-g", "person": "pick-g", "owner_signer": "cust-g", "valid_to": "2026-11-20"}
+  ],
+  "receipts": [
+    {"event_id": "rt-a", "garment_id": "suit-a", "person": "pick-a", "at": "2026-11-04", "bag": "bag-suit-a", "condition": "returned", "owner_signer": "pick-a"},
+    {"event_id": "rt-b", "garment_id": "suit-b", "person": "pick-b", "at": "2026-11-04", "bag": "bag-suit-b", "condition": "returned", "owner_signer": "pick-b"},
+    {"event_id": "rt-c", "garment_id": "suit-c", "person": "pick-c", "at": "2026-11-04", "bag": "bag-suit-c", "condition": "returned", "owner_signer": "pick-c"},
+    {"event_id": "rt-d", "garment_id": "suit-d", "person": "pick-d", "at": "2026-11-04", "bag": "bag-suit-d", "condition": "returned", "owner_signer": "pick-d"},
+    {"event_id": "rt-e", "garment_id": "suit-e", "person": "pick-e", "at": "2026-11-04", "bag": "bag-suit-e", "condition": "returned", "owner_signer": "pick-e"},
+    {"event_id": "rt-f", "garment_id": "suit-f", "person": "pick-f", "at": "2026-11-04", "bag": "bag-suit-f", "condition": "returned", "owner_signer": "pick-f"},
+    {"event_id": "rt-g", "garment_id": "suit-g", "person": "pick-g", "at": "2026-11-04", "bag": "bag-suit-g", "condition": "returned", "owner_signer": "pick-g"}
+  ],
+  "claims": [
+    {"event_id": "cl-a", "garment_id": "suit-a", "receipt_id": "rt-a", "at": "2026-11-05", "photo_sha": "damage-a", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-b", "garment_id": "suit-b", "receipt_id": "rt-b", "at": "2026-11-05", "photo_sha": "damage-b", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-c", "garment_id": "suit-c", "receipt_id": "rt-c", "at": "2026-11-05", "photo_sha": "damage-c", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-d", "garment_id": "suit-d", "receipt_id": "rt-d", "at": "2026-11-05", "photo_sha": "damage-d", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-e", "garment_id": "suit-e", "receipt_id": "rt-e", "at": "2026-11-05", "photo_sha": "damage-e", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-f", "garment_id": "suit-f", "receipt_id": "rt-f", "at": "2026-11-05", "photo_sha": "damage-f", "damage": "tear", "requested_amount": 100},
+    {"event_id": "cl-g", "garment_id": "suit-g", "receipt_id": "rt-g", "at": "2026-11-05", "photo_sha": "damage-g", "damage": "tear", "requested_amount": 100}
+  ]
+}

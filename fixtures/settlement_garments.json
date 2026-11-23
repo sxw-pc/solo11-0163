@@ -1,0 +1,20 @@
+{
+  "garments": [
+    {"event_id": "g-route-a", "id": "suit-a", "owner": "cust-a", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-a", "claim_until": "2026-11-20", "expected_bag": "bag-suit-a"},
+    {"event_id": "g-route-b", "id": "suit-b", "owner": "cust-b", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-b", "claim_until": "2026-11-20", "expected_bag": "bag-suit-b"},
+    {"event_id": "g-bounce", "id": "suit-c", "owner": "cust-c", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-c", "claim_until": "2026-11-20", "expected_bag": "bag-suit-c"},
+    {"event_id": "g-early", "id": "suit-d", "owner": "cust-d", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-d", "claim_until": "2026-11-20", "expected_bag": "bag-suit-d"},
+    {"event_id": "g-rejudge", "id": "suit-e", "owner": "cust-e", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-e", "claim_until": "2026-11-20", "expected_bag": "bag-suit-e"},
+    {"event_id": "g-gap", "id": "suit-f", "owner": "cust-f", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-f", "claim_until": "2026-11-20", "expected_bag": "bag-suit-f"},
+    {"event_id": "g-cross", "id": "suit-g", "owner": "cust-g", "material": "wool", "accepted_at": "2026-11-01", "declared_value": 2000, "cap_rate": 100, "allowed_process": "dry", "pickup_person": "pick-g", "claim_until": "2026-11-20", "expected_bag": "bag-suit-g"}
+  ],
+  "photos": [
+    {"event_id": "ph-a", "garment_id": "suit-a", "version": 1, "photo_sha": "sha-a", "damage": ["old-scuff"], "owner_signer": "cust-a", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-b", "garment_id": "suit-b", "version": 1, "photo_sha": "sha-b", "damage": ["old-scuff"], "owner_signer": "cust-b", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-c", "garment_id": "suit-c", "version": 1, "photo_sha": "sha-c", "damage": ["old-scuff"], "owner_signer": "cust-c", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-d", "garment_id": "suit-d", "version": 1, "photo_sha": "sha-d", "damage": ["old-scuff"], "owner_signer": "cust-d", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-e", "garment_id": "suit-e", "version": 1, "photo_sha": "sha-e", "damage": ["old-scuff"], "owner_signer": "cust-e", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-f", "garment_id": "suit-f", "version": 1, "photo_sha": "sha-f", "damage": ["old-scuff"], "owner_signer": "cust-f", "clerk_signer": "clerk-a", "material": "wool"},
+    {"event_id": "ph-g", "garment_id": "suit-g", "version": 1, "photo_sha": "sha-g", "damage": ["old-scuff"], "owner_signer": "cust-g", "clerk_signer": "clerk-a", "material": "wool"}
+  ]
+}

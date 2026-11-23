@@ -1,0 +1,19 @@
+{
+  "orders": [
+    {"event_id": "ord-e", "order_id": "order-e", "garment_id": "suit-e", "customer": "cust-e", "receiving_shop": "shop-a", "amount": 600, "at": "2026-11-01"}
+  ],
+  "agreements": [
+    {"event_id": "agr-e", "order_id": "order-e", "garment_id": "suit-e", "from_shop": "shop-a", "to_shop": "shop-b", "fee": 300, "from_signer": "mgr-a", "to_signer": "mgr-b", "signed_at": "2026-11-01", "version": 1}
+  ],
+  "movements": [
+    {"event_id": "mv-e-pay-r", "order_id": "order-e", "garment_id": "suit-e", "direction": "customer_payment", "kind": "received", "payer": "cust-e", "payee": "shop-a", "amount": 600, "bank_ref": "ref-pay-e", "at": "2026-11-01T10:00"},
+    {"event_id": "mv-e-pay-p", "order_id": "order-e", "garment_id": "suit-e", "direction": "customer_payment", "kind": "applied", "payer": "cust-e", "payee": "shop-a", "amount": 600, "bank_ref": "ref-pay-e", "at": "2026-11-01T12:00"},
+    {"event_id": "mv-e-fee-r", "order_id": "order-e", "garment_id": "suit-e", "direction": "shop_transfer", "kind": "received", "payer": "shop-a", "payee": "shop-b", "amount": 300, "bank_ref": "ref-fee-e", "at": "2026-11-06T10:00"},
+    {"event_id": "mv-e-fee-p", "order_id": "order-e", "garment_id": "suit-e", "direction": "shop_transfer", "kind": "applied", "payer": "shop-a", "payee": "shop-b", "amount": 300, "bank_ref": "ref-fee-e", "at": "2026-11-06T12:00"},
+    {"event_id": "mv-e-comp-r", "order_id": "order-e", "garment_id": "suit-e", "direction": "compensation", "kind": "received", "payer": "shop-a", "payee": "cust-e", "amount": 100, "bank_ref": "ref-comp-e", "at": "2026-11-08T10:00"},
+    {"event_id": "mv-e-comp-p", "order_id": "order-e", "garment_id": "suit-e", "direction": "compensation", "kind": "applied", "payer": "shop-a", "payee": "cust-e", "amount": 100, "bank_ref": "ref-comp-e", "at": "2026-11-08T12:00"}
+  ],
+  "liabilities": [
+    {"event_id": "lib-e-1", "order_id": "order-e", "garment_id": "suit-e", "version": 1, "liable_shop": "from_shop", "amount": 100, "reason": "initial protocol: receiving shop bears payout", "from_signer": "mgr-a", "to_signer": "mgr-b", "signed_at": "2026-11-07"}
+  ]
+}
