@@ -15,6 +15,17 @@ CREATE TABLE IF NOT EXISTS return_receipt(event_id TEXT PRIMARY KEY,garment_id T
 CREATE TABLE IF NOT EXISTS claim(event_id TEXT PRIMARY KEY,garment_id TEXT NOT NULL,receipt_id TEXT NOT NULL,at TEXT NOT NULL,photo_sha TEXT NOT NULL,damage TEXT NOT NULL,requested_amount INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS compensation_decision(garment_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,payable INTEGER NOT NULL,frozen INTEGER NOT NULL,version INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS decision_history(id INTEGER PRIMARY KEY,subsystem TEXT NOT NULL,garment_id TEXT NOT NULL,version INTEGER NOT NULL,state TEXT NOT NULL,reason TEXT NOT NULL,at TEXT DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS solvent_route(event_id TEXT PRIMARY KEY,route_id TEXT NOT NULL,kind TEXT NOT NULL,approved_by TEXT NOT NULL,valid_from TEXT NOT NULL,valid_to TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_barrel(event_id TEXT PRIMARY KEY,barrel_id TEXT NOT NULL,batch TEXT NOT NULL,chemical TEXT NOT NULL,role TEXT NOT NULL,liters REAL NOT NULL,weight_kg REAL NOT NULL,density_kg_per_l REAL NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL,supplier TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_draw(event_id TEXT PRIMARY KEY,barrel_id TEXT NOT NULL,operation_id TEXT NOT NULL,liters REAL NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL,shop TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_reflux(event_id TEXT PRIMARY KEY,barrel_id TEXT NOT NULL,operation_id TEXT NOT NULL,liters REAL NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_distillation(event_id TEXT PRIMARY KEY,route_id TEXT NOT NULL,input_barrel_id TEXT NOT NULL,output_barrel_id TEXT NOT NULL,input_liters REAL NOT NULL,reusable_liters REAL NOT NULL,residue_liters REAL NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_handover(event_id TEXT PRIMARY KEY,barrel_id TEXT NOT NULL,route_id TEXT NOT NULL,liters REAL NOT NULL,sealed_weight_kg REAL NOT NULL,carrier TEXT NOT NULL,receiver TEXT NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_waste_receipt(event_id TEXT PRIMARY KEY,handover_id TEXT NOT NULL,status TEXT NOT NULL,received_liters REAL,received_weight_kg REAL,at TEXT NOT NULL,signer TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_calibration(event_id TEXT PRIMARY KEY,meter_id TEXT NOT NULL,factor REAL NOT NULL,effective_from TEXT NOT NULL,issued_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_stock_check(event_id TEXT PRIMARY KEY,barrel_id TEXT NOT NULL,measured_liters REAL NOT NULL,meter_id TEXT NOT NULL,at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_decision(barrel_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,quantities TEXT NOT NULL,version INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS solvent_operation(operation_id TEXT PRIMARY KEY,state TEXT NOT NULL,reason TEXT NOT NULL,quantities TEXT NOT NULL,version INTEGER NOT NULL);
 """
 
 
@@ -25,16 +36,16 @@ def connect(path):
     return db
 
 
-def update(db,table,garment_id,**fields):
-    old=db.execute(f'SELECT * FROM {table} WHERE garment_id=?',(garment_id,)).fetchone()
-    if old and all(old[key]==value for key,value in fields.items()):
+def update(db,table,entity_id,key='garment_id',**fields):
+    old=db.execute(f'SELECT * FROM {table} WHERE {key}=?',(entity_id,)).fetchone()
+    if old and all(old[name]==value for name,value in fields.items()):
         return dict(old)
     version=(old['version']+1) if old else 1
-    names=['garment_id',*fields,'version']
-    values=[garment_id,*fields.values(),version]
-    sql=f"INSERT INTO {table}({','.join(names)}) VALUES({','.join('?' for _ in names)}) ON CONFLICT(garment_id) DO UPDATE SET "
+    names=[key,*fields,'version']
+    values=[entity_id,*fields.values(),version]
+    sql=f"INSERT INTO {table}({','.join(names)}) VALUES({','.join('?' for _ in names)}) ON CONFLICT({key}) DO UPDATE SET "
     sql+=','.join(f'{name}=excluded.{name}' for name in [*fields,'version'])
     db.execute(sql,values)
     db.execute('INSERT INTO decision_history(subsystem,garment_id,version,state,reason) VALUES(?,?,?,?,?)',
-               (table,garment_id,version,fields['state'],fields['reason']))
-    return dict(db.execute(f'SELECT * FROM {table} WHERE garment_id=?',(garment_id,)).fetchone())
+               (table,entity_id,version,fields['state'],fields['reason']))
+    return dict(db.execute(f'SELECT * FROM {table} WHERE {key}=?',(entity_id,)).fetchone())

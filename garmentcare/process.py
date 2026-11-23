@@ -48,4 +48,7 @@ def import_data(db,data):
                 db.execute('INSERT INTO operation VALUES(?,?,?,?,?,?,?,?,?,?,?)',
                            (row['event_id'],row['garment_id'],row['recipe_id'],row['kind'],row['at'],row['temp'],row['chemical'],row['from_shop'],row['to_shop'],row.get('sender'),row.get('receiver')))
             touched.add(row['garment_id'])
-        return [decide(db,g) for g in sorted(touched)]
+        results=[decide(db,g) for g in sorted(touched)]
+        from .solvent import reconcile
+        reconcile(db)
+        return results
